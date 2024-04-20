@@ -21,7 +21,9 @@ html, body {
 	overflow-x: hidden;
 	width: 100vw;
 }
-
+::-webkit-scrollbar {
+	display: none;
+}
 :root {
 	font-size: 14px;
 	--color-text: #fff;
@@ -31,7 +33,9 @@ html, body {
 	--color-link-hover: #fff;
 	--color-title: #fff;
 }
-
+.content__img-inner {
+	border-radius: 40px;
+}
 body {
 	margin: 0;
 	color: var(--color-text);
@@ -450,4 +454,96 @@ body #cdawrap {
 	    justify-self: end;
 	}
 
+}
+
+a {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  /* color: #18272F; */
+  font-weight: 600;
+  vertical-align: top;
+}
+
+a::before,
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a::before {
+  background-color: #bfbccc;
+  border-radius: 5px;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+}
+
+a::after {
+  content: attr(data-replace);
+  height: 100%;
+  top: 0;
+  transform-origin: 100% 0;
+  transform: translateY(-100%);
+}
+
+a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+
+a:hover::after {
+  transform: translateY(0);
+}
+
+a span {
+  display: inline-block;
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a:hover span {
+  transform: translateY(100%);
+}
+#style-2 {
+  margin-right: 10px;
+}
+.navigation {
+  margin: 20px;
+  margin-bottom: 0px;
+  display: flex;
+  gap: 30px;
+  font-size:21px;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+}
+.home-button {
+  background-color: #3b438db5;
+  border-radius: 30px;
+  font-size: larger;
+  font-weight: bold;
+  padding: 25px;
+}
+.content__title {
+  gap: 20px;
+}
+.logo {
+  display: flex;
+  font-size: larger;
+  align-items: center;
+  gap:  10px;
+}
+
+.contact-us {
+  font-size: larger;
+}
+
+#headerWithImage {
+  background-image: url(img/front.gif);
+  border-radius: 20px;
 }
